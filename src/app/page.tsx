@@ -13,7 +13,8 @@ export default function HomePage() {
     <div className="min-h-screen">
       <Header />
       
-      <main>
+      {/* Offset for fixed header heights across breakpoints */}
+      <main className="pt-[72px] sm:pt-[80px] lg:pt-[86px]">
         <HeroSection />
         
         {/* Services */}
