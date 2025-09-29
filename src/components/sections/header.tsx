@@ -12,14 +12,14 @@ const Header = () => {
     ];
 
     return (
-        <div className="fixed top-0 left-0 right-0 z-10">
+        <div className="fixed top-0 left-0 right-0 z-[60]">
             <nav className="bg-primary">
-                <div className="mx-auto flex h-[86px] max-w-[1200px] items-center justify-between px-6">
-                    <Link href="/" className="font-heading text-[30px] font-bold tracking-tight text-primary-foreground">
+                <div className="mx-auto flex h-[72px] sm:h-[80px] lg:h-[86px] max-w-[1200px] items-center justify-between px-4 sm:px-6">
+                    <Link href="/" className="font-heading text-[22px] sm:text-[26px] md:text-[30px] font-bold tracking-tight text-primary-foreground">
                         Hola Contracting Inc.
                     </Link>
 
-                    <div className="hidden items-center gap-10 lg:flex">
+                    <div className="hidden items-center gap-8 xl:gap-10 lg:flex">
                         <div className="flex items-center gap-8">
                             {navItems.map((item) => (
                                 <Link
@@ -43,8 +43,11 @@ const Header = () => {
                     
                     <div className="lg:hidden">
                         <button
-                            className="text-primary-foreground"
+                            type="button"
+                            className="text-primary-foreground relative z-[61] p-1.5"
                             aria-label={open ? 'Close menu' : 'Open menu'}
+                            aria-expanded={open}
+                            aria-controls="mobile-nav"
                             onClick={() => setOpen((v) => !v)}
                         >
                             {open ? <X className="h-8 w-8" /> : <Menu className="h-8 w-8" />}
@@ -54,7 +57,7 @@ const Header = () => {
 
                 {/* Mobile menu */}
                 {open && (
-                    <div className="lg:hidden border-t border-white/10 bg-primary/95 backdrop-blur">
+                    <div id="mobile-nav" className="lg:hidden border-t border-white/10 bg-primary/95 backdrop-blur relative z-[55] pointer-events-auto">
                         <div className="mx-auto max-w-[1200px] px-6 py-4">
                             <div className="flex flex-col gap-4">
                                 {navItems.map((item) => (
