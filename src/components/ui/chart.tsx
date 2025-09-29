@@ -289,13 +289,15 @@ type LegendPayload = {
   [key: string]: any
 }
 
-type ChartLegendContentProps = React.ComponentProps<"div"> &
-  Pick<RechartsPrimitive.LegendProps, "payload" | "verticalAlign"> & {
-    hideIcon?: boolean
-    nameKey?: string
-  }
+// ----------- FIXED: Corrected Legend Props Typing -----------
+type ChartLegendContentProps = {
+  className?: string
+  hideIcon?: boolean
+  payload?: LegendPayload[]
+  verticalAlign?: "top" | "bottom" | "middle"
+  nameKey?: string
+}
 
-// Refactored ChartLegendContent with explicit payload typing
 function ChartLegendContent({
   className,
   hideIcon = false,
@@ -390,4 +392,4 @@ export {
   ChartLegend,
   ChartLegendContent,
   ChartStyle,
-          }
+      }
